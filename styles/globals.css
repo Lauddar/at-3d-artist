@@ -37,9 +37,10 @@ body {
 .main-position {
   margin-top: 7.5vh;
   margin-left: 6.45vw;
+  margin-right: 1.9vw;
 }
 
 .title-position {
-  margin-top: 36.5vh;
-  margin-left: 42.45vw;
+  margin-top: 32vh;
+  /*margin-left: 42.45vw;*/
 }
