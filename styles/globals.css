@@ -19,7 +19,7 @@
 body {
   width: 100%;
   background: white;
-  position: relative
+  position: relative;
 }
 
 .frame-position {
@@ -32,4 +32,14 @@ body {
 
 .nav-position {
   height: 7.36vh;
+}
+
+.main-position {
+  margin-top: 7.5vh;
+  margin-left: 6.45vw;
+}
+
+.title-position {
+  margin-top: 36.5vh;
+  margin-left: 42.45vw;
 }

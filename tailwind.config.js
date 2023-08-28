@@ -11,7 +11,9 @@ module.exports = {
         primary: '#143F6B',
         secondary: '#82DD8D',
       },
-      
+      fontSize: {
+        '10xl': '11.25rem',
+      }
     },
   },
   plugins: [],

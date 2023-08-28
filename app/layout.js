@@ -1,5 +1,5 @@
-import '../styles/globals.css'
 import { Carme } from 'next/font/google'
+import '../styles/globals.css'
 import { Header } from './components/Header'
 
 const carme = Carme({ subsets: ['latin'], weight: '400', variable: "--font-carme" })
@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={carme.className}>
         <Header />
         {children}</body >
