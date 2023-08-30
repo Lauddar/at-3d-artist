@@ -7,19 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Scene() {
-    const gltf = useGLTF("/scene.gltf");
+    const gltf = useGLTF("/capsule_corp_night.gltf");
     const [rotationY, setRotationY] = useState(0);
-
-    const handleScroll = () => {
-      const scrollValue = window.scrollY;
-      const rotationSpeed = 0.0008;
-      setRotationY(rotationSpeed * -scrollValue);
-    };
-  
-    useEffect(() => {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     return (
         <Canvas>
