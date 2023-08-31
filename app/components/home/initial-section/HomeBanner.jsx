@@ -7,8 +7,8 @@ const changaOne = Changa_One({ subsets: ['latin'], weight: '400' })
 export function HomeBanner({ title, subtitle, description }) {
     return (
         <>
-            <div className="h-[1700px] w-full absolute top-0 left-0 bg-secondary -z-20"></div>
-            <div className="h-screen w-full absolute top-0 left-0 bg-yellow-500 -z-20"><CapsuleScene /></div>
+            <div className="h-[1700px] w-full absolute top-0 left-0 bg-secondary "></div>
+            <div className="h-screen w-full absolute top-0 left-0 bg-yellow-500 z-50"><CapsuleScene /></div>
             <section className="h-[1700px] w-full absolute top-0 left-0 padding-default ">
                 <div className='sticky top-0 right-0 text-white mr-16 text-right title-position z-30'>
                     <p className='mr-0 ml-auto w-1/3'>{description}</p>
