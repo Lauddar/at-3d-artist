@@ -20,7 +20,7 @@ const links = [{
 export function Navigation() {
     return (
             <nav className="flex justify-center uppercase w-full md:text-xl nav-position fixed z-50">
-                <ul className="flex gap-24 text-gray-200 items-center">{links.map(({ label, route }) => (
+                <ul className="flex gap-24 text-primary items-center">{links.map(({ label, route }) => (
                     <li key={route}>
                         <Link href={route}>
                             {label}
