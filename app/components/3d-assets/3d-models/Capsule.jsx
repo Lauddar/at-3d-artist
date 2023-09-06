@@ -1,41 +1,45 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { useFrame, useThree } from '@react-three/fiber'
 import { useGLTF, PerspectiveCamera } from "@react-three/drei";
-import { Vector2, Spherical } from "three";
-import { OrbitControlsCustom } from "../../../OrbitControlsCustom";
-import { TrackballControlsCustom } from "../../../TrackballControlsCustom";
+import * as THREE from 'three';
 
 export function Capsule(props) {
   const { nodes, materials } = useGLTF("/capsule_corp_night.gltf");
-  const { camera, gl } = useThree();
+  const { camera } = useThree();
 
-  const controls = new OrbitControlsCustom(camera, gl.domElement);
+  const mouse = new THREE.Vector2();
+  const target = new THREE.Vector2();
 
-  //controls.dampingFactor = 0.0000005;
-  //controls.enableZoom = false;
+  document.addEventListener('mousemove', onMouseMove, false);
 
-  //controls.maxAzimuthAngle = Math.PI / 2;
-  //controls.minAzimuthAngle = Math.PI / 4;
-  //controls.maxPolarAngle = Math.PI / 2;
-  //controls.maxPolarAngle = 0;
+  function onMouseMove(event) {
+    mouse.x = (event.clientX - windowHalf.x);
+    mouse.y = (event.clientY - windowHalf.y);
+  }
 
-  //console.log(controls)
+  useFrame(() => {
+    target.x = (1 - mouse.x) * 0.0002;
+    target.y = (1 - mouse.y) * 0.0002;
 
-  //controls.update();
+    camera.rotation.y = THREE.MathUtils.degToRad(50 * (camera.rotation.y + (target.x - camera.rotation.y)));
+    camera.rotation.x = THREE.MathUtils.degToRad(25 * (camera.rotation.x + (target.y - camera.rotation.x)));
 
-  //useFrame(() => { controls.update(); })*/
+    camera.position.x = 10 * (camera.position.x + (target.x - camera.position.x));
+    camera.position.y = 5 * (camera.position.y + (-target.y - camera.position.y));
+  });
 
   return (
-    <group position={[1.2, -0.2, 0]} dispose={null}>
+    <group {...props} dispose={null}>
       <PerspectiveCamera
-        makeDefault={true}
-        far={100}
+        makeDefault
+        fov={45}
+        aspect={window.innerWidth / window.innerHeight}
         near={0.1}
-        fov={22.895}
-        position={[8, 2.5, -5]}
-        rotation={[-2.833, 0.893, 2.898]}
+        far={500}
+        position={[0, 0, 10]}
+        rotation={[0, 0, 0]}
       />
-      <group position={[0.2, 0.22, 0.46]} rotation={[-0.007, 0.297, -0.007]}>
+      <group rotation={[Math.PI, -1.309, 3.054]} scale={1.7}>
         <mesh
           castShadow
           receiveShadow
@@ -67,7 +71,7 @@ export function Capsule(props) {
           scale={0.898}
         />
         <pointLight
-          intensity={50}
+          intensity={110}
           decay={2}
           color="#70b8ff"
           position={[6.294, 8.735, -1.005]}
@@ -81,7 +85,7 @@ export function Capsule(props) {
           rotation={[-1.839, 0.602, 1.932]}
         />
         <pointLight
-          intensity={40}
+          intensity={100}
           decay={2}
           color="#e2d8ff"
           position={[-8.95, 9.927, -5.843]}
