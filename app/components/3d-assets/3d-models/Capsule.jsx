@@ -9,6 +9,7 @@ export function Capsule(props) {
 
   const mouse = new THREE.Vector2();
   const target = new THREE.Vector2();
+  const windowHalf = new THREE.Vector2( window.innerWidth / 2, window.innerHeight / 2 );
 
   document.addEventListener('mousemove', onMouseMove, false);
 
@@ -24,8 +25,8 @@ export function Capsule(props) {
     camera.rotation.y = THREE.MathUtils.degToRad(50 * (camera.rotation.y + (target.x - camera.rotation.y)));
     camera.rotation.x = THREE.MathUtils.degToRad(25 * (camera.rotation.x + (target.y - camera.rotation.x)));
 
-    camera.position.x = 10 * (camera.position.x + (target.x - camera.position.x));
-    camera.position.y = 5 * (camera.position.y + (-target.y - camera.position.y));
+    camera.position.x = 3 + 10 * (camera.position.x + (target.x - camera.position.x));
+    camera.position.y = 1.54 + 5 * (camera.position.y + (-target.y - camera.position.y));
   });
 
   return (
@@ -36,10 +37,10 @@ export function Capsule(props) {
         aspect={window.innerWidth / window.innerHeight}
         near={0.1}
         far={500}
-        position={[0, 0, 10]}
+        position={[3, 1.54, 10]}
         rotation={[0, 0, 0]}
       />
-      <group rotation={[Math.PI, -1.309, 3.054]} scale={1.7}>
+      <group rotation={[Math.PI, -1.309, Math.PI]} scale={2.5}>
         <mesh
           castShadow
           receiveShadow
@@ -71,28 +72,28 @@ export function Capsule(props) {
           scale={0.898}
         />
         <pointLight
-          intensity={110}
+          intensity={150}
           decay={2}
           color="#70b8ff"
           position={[6.294, 8.735, -1.005]}
           rotation={[-1.839, 0.602, 1.932]}
         />
         <pointLight
-          intensity={0.1}
+          intensity={0.5}
           decay={2}
           color="#ffe6bb"
           position={[1.024, 0.107, 0.003]}
           rotation={[-1.839, 0.602, 1.932]}
         />
         <pointLight
-          intensity={100}
+          intensity={120}
           decay={2}
           color="#e2d8ff"
           position={[-8.95, 9.927, -5.843]}
           rotation={[-1.839, 0.602, 1.932]}
         />
         <pointLight
-          intensity={50}
+          intensity={120}
           decay={2}
           color="#c0f5ff"
           position={[-3.962, 1.658, -4.511]}

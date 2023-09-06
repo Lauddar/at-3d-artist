@@ -1,6 +1,6 @@
 export function Frame() {
     return (
-        <div className="h-screen w-full fixed top-0 left-0 frame-position">
+        <div className="h-screen w-screen fixed top-0 left-0 frame-position">
             <svg className="w-full h-full" width="2454" height="1324" viewBox="0 0 2454 1324" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2454 106L0 106" stroke="#828282" />
                 <path d="M118 1324L118 0" stroke="#828282" />
