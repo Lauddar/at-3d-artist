@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={`relative w-screen ${carme.className}`}>
+      <body className={`relative w-full ${carme.className}`}>
         <Header />
         {children}</body >
     </html >

@@ -37,8 +37,8 @@ body {
 
 .main-position {
   margin-top: 7.5vh;
-  margin-left: 6.45vw;
-  margin-right: 1.9vw;
+  margin-left: 3.7vh;
+  margin-right: 3.7vh;
 }
 
 .padding-default {
@@ -48,4 +48,16 @@ body {
 
 .title-position {
   margin-top: 45vh;
+}
+
+.d-right {
+  right: 3.7vh;
+}
+
+.d-mr {
+  margin-right: 3.7vh;
+}
+
+.h-130 {
+  height: 130vh;
 }

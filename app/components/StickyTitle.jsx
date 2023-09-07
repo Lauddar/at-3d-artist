@@ -5,6 +5,7 @@ const changaOne = Changa_One({ subsets: ['latin'], weight: '400' })
 
 export function StickyTitle({ title, subtitle }) {
     const [isVisible, setIsVisible] = useState(false);
+    let scrollValue = 800;
 
     useEffect(() => {
         // Función para manejar el evento de scroll
@@ -13,7 +14,7 @@ export function StickyTitle({ title, subtitle }) {
             const scrollY = window.scrollY;
 
             // Verificar si el scroll ha pasado el 100%
-            if (scrollY >= window.innerHeight) {
+            if (scrollY >= scrollValue) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
@@ -29,7 +30,7 @@ export function StickyTitle({ title, subtitle }) {
 
     return (
         <div
-            className={`text-end text-secondary mr-16 ${isVisible ? "opacity-0" : "opacity-100"
+            className={`fixed text-end text-secondary mt-2 top-28 mr-10 d-right ${isVisible ? "visible" : "hidden"
                 }`}
         >
             <h1 className={`text-5xl uppercase leading-0.8 ${changaOne.className}`}>
