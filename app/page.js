@@ -1,8 +1,10 @@
 "use client"; // This is a client component 👈🏽
 
-import { useState, useEffect } from "react";
-import { HomeBanner } from './components/home/initial-section/HomeBannerLayout'
-import { StickyTitle } from './components/StickyTitle'
+import { useEffect } from "react";
+import StickyTitle from './components/StickyTitle'
+import HomeBanner from './components/home/initial-section/HomeBannerLayout'
+import WorkProcess from './components/home/work-process-section/WorkProcess'
+
 
 export default function Home() {
   const siteProps = {
@@ -27,6 +29,7 @@ export default function Home() {
     <main className="main-position">
       <HomeBanner {...siteProps} />
       <StickyTitle {...siteProps} />
+      <WorkProcess />
     </main >
   )
 }

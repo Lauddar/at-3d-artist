@@ -1,6 +1,6 @@
 import { Carme } from 'next/font/google'
 import '../styles/globals.css'
-import { Header } from './components/Header'
+import Header from './components/Header'
 
 const carme = Carme({ subsets: ['latin'], weight: '400', variable: "--font-carme" })
 

@@ -3,7 +3,7 @@ import { Changa_One } from 'next/font/google'
 
 const changaOne = Changa_One({ subsets: ['latin'], weight: '400' })
 
-export function StickyTitle({ title, subtitle }) {
+export default function StickyTitle({ title, subtitle }) {
     const [isVisible, setIsVisible] = useState(false);
     let scrollValue = 750;
 

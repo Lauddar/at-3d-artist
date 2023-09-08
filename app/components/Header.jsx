@@ -1,7 +1,7 @@
-import { Navigation } from './Navigation'
-import { Frame, GreenBackground } from './layout-utils/layout-utils'
+import Navigation from './Navigation'
+import { Frame } from './layout-utils/layout-utils'
 
-export function Header() {
+export default function Header() {
     return (
         <header className="header-position relative">
             <Frame />

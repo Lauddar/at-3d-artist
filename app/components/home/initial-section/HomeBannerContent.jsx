@@ -4,7 +4,7 @@ import { Changa_One } from 'next/font/google';
 
 const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
-export function HomeBannerContent({ title, subtitle, description }) {
+export default function HomeBannerContent({ title, subtitle, description }) {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
     let scrollValue = 750;
@@ -39,7 +39,7 @@ export function HomeBannerContent({ title, subtitle, description }) {
     const scaleValue = scale.to((s) => `scale(${s})`);
 
     return (
-        <section className={`pt-80 h-130 ${isVisible ? "visible" : "hidden"}`}>
+        <section className={`pt-80 h-130 main-position absolute top-0 right-0 ${isVisible ? "visible" : "hidden"}`}>
             <animated.div className="sticky mt-2 top-28 mr-10 text-white text-right scroll-element"
                 style={{
                     transform: scaleValue,

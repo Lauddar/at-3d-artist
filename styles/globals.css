@@ -61,3 +61,24 @@ body {
 .h-130 {
   height: 130vh;
 }
+
+.process-card {
+  will-change: transform;
+  background-color: white;
+  overflow: hidden;
+  width: 29.7916666667vw;
+  height: 42.5vw;
+  position: sticky;
+  top: 6.9444444444vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+}
+
+.process-cards {
+  position: relative;
+  margin-top: 10.4166666667vw;
+  display: flex;
+  flex-direction: column;
+  gap: 27.7777777778vw;
+  padding-bottom: 27.7777777778vw;
+}

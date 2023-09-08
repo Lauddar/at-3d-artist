@@ -17,7 +17,7 @@ const links = [{
     route: '/'
 }]
 
-export function Navigation() {
+export default function Navigation() {
     return (
             <nav className="flex justify-center uppercase w-full md:text-xl nav-position fixed z-50">
                 <ul className="flex gap-24 text-primary items-center">{links.map(({ label, route }) => (
