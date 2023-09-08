@@ -12,15 +12,12 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // Función para manejar el evento de scroll
     function handleScroll() {
       console.log(window.scrollY);
     }
 
-    // Agregar el evento de desplazamiento al montar el componente
     window.addEventListener('scroll', handleScroll);
 
-    // Eliminar el evento de desplazamiento al desmontar el componente
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

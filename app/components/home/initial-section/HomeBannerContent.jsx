@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSpring, animated } from "react-spring";
-import { Changa_One, Righteous } from 'next/font/google';
+import { Changa_One } from 'next/font/google';
 
 const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
 export function HomeBannerContent({ title, subtitle, description }) {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
-    let scrollValue = 800;
+    let scrollValue = 750;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,13 +27,13 @@ export function HomeBannerContent({ title, subtitle, description }) {
         if (y >= 850) {
             return 0.36;
         } else {
-            return 1 - (y / 850) * (1 - 0.36);
+            return 1 - (y / 850) * (1 - 0.3);
         }
     };
 
     const { scale } = useSpring({
         scale: calcScale(scrollY),
-        config: { tension: 500, friction: 50 },
+        config: { tension: 300, friction: 20 },
     });
 
     const scaleValue = scale.to((s) => `scale(${s})`);
