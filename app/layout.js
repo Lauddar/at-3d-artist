@@ -1,5 +1,8 @@
+import { register } from 'swiper/element/bundle';
 import { Carme } from 'next/font/google'
 import '../styles/globals.css'
+register();
+
 import Header from './components/Header'
 
 const carme = Carme({ subsets: ['latin'], weight: '400', variable: "--font-carme" })

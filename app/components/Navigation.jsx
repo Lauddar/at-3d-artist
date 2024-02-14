@@ -1,4 +1,54 @@
-import Link from 'next/link'
+import React from "react";
+import { Changa_One } from 'next/font/google';
+import Link from 'next/link';
+
+const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
+
+function StickyTitleCard({ title, subtitle }) {
+    return (
+        <>
+            <div className={`fixed text-end text-white mt-2 top-28 mr-10 d-right -z-20`}>
+                <p className={`text-5xl uppercase leading-0.8 ${changaOne.className}`}>
+                    {title}
+                </p>
+                <p className={`text-3xl uppercase leading-0.8 ${changaOne.className}`}>
+                    {subtitle}
+                </p>
+            </div>
+        </>
+    );
+}
+
+function ContactCard({ email, linkedin, instagram }) {
+    return (
+        <div className="contact-item absolute bg-secondary text-white shadow-md contact-card -z-1 normal-case">
+            <div className="mt-[32%] leading-8 inline-block">
+                <StickyTitleCard title='Albert Toll' subtitle='3D Artist' />
+                <ul>
+                    <li className="contact-data relative">
+                        <div className="hv-triangular-div absolute -z-1"></div>
+                        <a className='pl-8' href={`mailto:${email}`}>
+                            <span className={`${changaOne.className}`}>Email:</span> {email}
+                        </a>
+                    </li>
+                    <li className="contact-data relative">
+                        <div className="hv-triangular-div absolute -z-1"></div>
+                        <a className='pl-8 inline-block' href={linkedin}>
+                            <span className={`${changaOne.className}`}>LinkedIn:</span> {linkedin}
+                        </a>
+                    </li>
+                    <li className="contact-data relative">
+                        <div className="hv-triangular-div absolute -z-1"></div>
+                        <a className='pl-8 inline-block' href={instagram}>
+                            <span className={`${changaOne.className}`}>Instagram:</span> {instagram}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div className="triangular-div ml-auto"></div>
+        </div>
+    );
+};
 
 const links = [{
     label: 'Projects',
@@ -15,18 +65,29 @@ const links = [{
 {
     label: 'Contact',
     route: '/'
-}]
+}];
 
 export default function Navigation() {
     return (
-            <nav className="flex justify-center uppercase w-full md:text-xl nav-position fixed z-50">
-                <ul className="flex gap-24 text-primary items-center">{links.map(({ label, route }) => (
-                    <li>
-                        <Link href={route}>
-                            {label}
-                        </Link>
+        <nav className="flex justify-center uppercase w-full md:text-xl nav-position fixed z-50">
+            <ul className="flex gap-24 text-primary items-center menu border-b border-gray-600">
+                {links.map(({ label, route }) => (
+                    <li key={label} className={`h-full flex items-center relative ${label === 'Contact' ? 'contact-label' : ''}`}>
+                        {label === 'Contact' ? (
+                            <>
+                                <div className="cursor-pointer">
+                                    {label}
+                                </div>
+                                <ContactCard email="contact@toll3dartist.com" linkedin="albert-toll" instagram="toll3dart" />
+                            </>
+                        ) : (
+                            <Link href={route} key={label}>
+                                {label}
+                            </Link>
+                        )}
                     </li>
-                ))}</ul>
-            </nav >
-    )
-}
+                ))}
+            </ul>
+        </nav>
+    );
+};

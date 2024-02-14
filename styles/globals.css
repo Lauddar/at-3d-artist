@@ -27,12 +27,86 @@ body {
   padding: 3.7vh;
 }
 
+.menu {
+  margin: 0 3.7vh;
+  width: 100%;
+}
+
+.menu>:first-child {
+  justify-content: end;
+  width: 100%;
+}
+
+.menu>:last-child {
+  text-align: start;
+  width: 100%;
+}
+
+.contact-label:hover .contact-card {
+  display: block;
+}
+
+.contact-card {
+  display: none;
+  top: 0;
+  left: -31px;
+  right: 0;
+  border-radius: 34px;
+  aspect-ratio: 1.65;
+}
+
+.triangular-div {
+  width: 200px;
+  height: 20px;
+  border-left: 260px solid transparent;
+  border-bottom: 20px solid #C1CF17;
+  margin-top: min(1%, 1rem);
+}
+
+@media (max-width: 1440px) {
+  .triangular-div {
+    display: none;
+  }
+}
+
+.contact-data:hover .hv-triangular-div {
+  display: block;
+}
+
+.contact-data:hover a {
+  color: #000;
+}
+
+.hv-triangular-div {
+  display: none;
+  position: absolute;
+  width: 350px;
+  height: 20px;
+  background-color: #C1CF17;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hv-triangular-div::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 80px 0 0;
+  border-color: #C1CF17 transparent transparent transparent;
+  transform-origin: bottom right;
+  transform: translateX(80px);
+}
+
 .header-position {
   padding-top: 3.7vh;
 }
 
 .nav-position {
-  height: 7.36vh;
+  height: 7.455vh;
 }
 
 .main-position {
@@ -81,4 +155,12 @@ body {
   flex-direction: column;
   gap: 27.7777777778vw;
   padding-bottom: 27.7777777778vw;
+}
+
+.carousel-item {
+  transition: all .4s ease-in-out;
+}
+
+.carousel-item:hover {
+  transform: scale(1.3);
 }
