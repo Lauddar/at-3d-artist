@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         primary: '#828282',
         secondary: '#143F6B',
+        'tertiary': '#C1CF17',
       },
       fontSize: {
         '10xl': '11.25rem',
@@ -19,6 +20,25 @@ module.exports = {
       },
       zIndex: {
         '-1': '-1',
+      },
+      margin: {
+        'df': '3.7vh',
+        'top': '3.7vh 0 0 0',
+        'right': '0 3.7vh 0 0',
+        'bottom': '0 0 3.7vh 0',
+        'left': '0 0 0 3.7vh',
+        'x': '0 3.7vh',
+        'y': '3.7vh 0',
+      },
+      padding: {
+        'df': '3.7vh',
+        'top': '3.7vh 0 0 0',
+        'right': '0 3.7vh 0 0',
+        'bottom': '0 0 3.7vh 0',
+        'left': '0 0 0 3.7vh',
+        'x': '0 3.7vh',
+        'y': '3.7vh 0',
+        'main': '7.455vh 0 0 0'
       }
     },
   },

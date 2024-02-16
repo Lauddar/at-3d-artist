@@ -16,20 +16,12 @@
   }
 }
 
-body {
-  width: 100%;
-  height: 10000px;
-  background: white;
-  position: relative;
+html {
+  box-sizing: border-box;
 }
 
-.frame-position {
-  padding: 3.7vh;
-}
-
-.menu {
-  margin: 0 3.7vh;
-  width: 100%;
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 .menu>:first-child {
@@ -42,8 +34,12 @@ body {
   width: 100%;
 }
 
-.contact-label:hover .contact-card {
+.contact-item:hover .contact-card {
   display: block;
+}
+
+.contact-item:hover .contact-label {
+  color: white;
 }
 
 .contact-card {
@@ -51,7 +47,7 @@ body {
   top: 0;
   left: -31px;
   right: 0;
-  border-radius: 34px;
+  border-radius: 67px;
   aspect-ratio: 1.65;
 }
 
@@ -101,11 +97,11 @@ body {
   transform: translateX(80px);
 }
 
-.header-position {
+.hd-position {
   padding-top: 3.7vh;
 }
 
-.nav-position {
+.nav-height {
   height: 7.455vh;
 }
 
@@ -122,14 +118,6 @@ body {
 
 .title-position {
   margin-top: 45vh;
-}
-
-.d-right {
-  right: 3.7vh;
-}
-
-.d-mr {
-  margin-right: 3.7vh;
 }
 
 .h-130 {
@@ -163,4 +151,9 @@ body {
 
 .carousel-item:hover {
   transform: scale(1.3);
+}
+
+main {
+  min-width: 100vw;
+  min-height: 100vh;
 }
