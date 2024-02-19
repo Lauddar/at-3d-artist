@@ -1,9 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-export function WorkProcessCard({ id, left, rotation, bgImage }) {
+export function WorkProcessCard({ id, left, rotation, bgImage, size }) {
   const cardRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
   const [animationStartY, setAnimationStartY] = useState(0);
+  const index = id; // Supongamos que 'id' es el índice de la tarjeta
+
+  let className = size === 'large' ? 'process-card-lg' : 'process-card';
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +23,15 @@ export function WorkProcessCard({ id, left, rotation, bgImage }) {
 
   useEffect(() => {
     const cardRect = cardRef.current.getBoundingClientRect();
-    const desiredStartY = (1-(7.6/100)) * window.innerHeight;
+    let desiredStartY;
+
+    if (size === 'large') {
+      // Calcula desiredStartY para tamaño 'large'
+      desiredStartY = (1 - (1 / 100)) * window.innerHeight; // Ajusta el porcentaje según el tamaño 'large'
+    } else {
+      // Calcula desiredStartY para otros tamaños
+      desiredStartY = (1 - (7.6 / 100)) * window.innerHeight;
+    }
 
     if (cardRect.top <= desiredStartY) {
       setAnimationStartY(0);
@@ -27,9 +39,9 @@ export function WorkProcessCard({ id, left, rotation, bgImage }) {
       setAnimationStartY(cardRect.bottom - desiredStartY);
     }
   }, []);
-
-  const translateY = scrollY >= animationStartY ? -(scrollY - animationStartY) * 0.1 : 0;
-  const translateX = scrollY >= animationStartY ? -(scrollY - animationStartY) * 0.1 : 0;
+  
+  let translateY = scrollY >= animationStartY ? -(scrollY - animationStartY) * 0.1 : 0;
+  let translateX = scrollY >= animationStartY ? -(scrollY - animationStartY) * 0.05 : 0;
 
   const cardStyle = {
     left: left || 0,
@@ -38,7 +50,7 @@ export function WorkProcessCard({ id, left, rotation, bgImage }) {
   };
 
   return (
-    <article className="process-card" style={cardStyle} ref={cardRef}>
+    <article className={className} style={cardStyle} ref={cardRef}>
     </article>
   );
 }

@@ -132,7 +132,19 @@ html {
   height: 42.5vw;
   position: sticky;
   top: 6.9444444444vw;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  box-shadow: 8px 8px 21px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.process-card-lg {
+  will-change: transform;
+  background-color: white;
+  overflow: hidden;
+  height: 31.791667vw;
+  width: 53.5vw;
+  position: sticky;
+  top: 6.9444444444vw;
+  box-shadow: 8px 8px 21px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
 }
 
