@@ -20,24 +20,27 @@ const siteProps = {
 const projects = [
   {
     id: "1",
-    src: '/dibu10.jpg',
-    title: 'Descripción de la imagen 1',
+    src: '/work5.png',
+    title: 'Proyecto 1',
+    description: 'Descripción de la imagen 1',
   },
   {
     id: "2",
     src: '/dibu2.jpg',
-    title: 'Descripción de la imagen 2',
-    description: 'description hi',
+    title: 'Proyecto 2',
+    description: 'Descripción de la imagen 2',
   },
   {
     id: "3",
     src: '/dibu5.jpg',
-    title: 'Descripción de la imagen 1',
+    title: 'Proyecto 3',
+    description: 'Descripción de la imagen 3',
   },
   {
     id: "4",
     src: '/dibu1.jpg',
-    title: 'Descripción de la imagen 2',
+    title: 'Proyecto 4',
+    description: 'Descripción de la imagen 4',
   },
   {
     id: "5",
@@ -117,22 +120,24 @@ export default function Home() {
     };
   }, []);
 
-  const [selectedProjectId, setSelectedProjectId] = useState(null); // Estado para almacenar el ID de la imagen seleccionada
+  const [selectedProjectId, setSelectedProjectId] = useState(1);
 
-  // Manejador de eventos para la selección de imagen en el Carousel
   const handleProjectSelect = (projectId) => {
     setSelectedProjectId(projectId);
-    console.log('selectedProjectId:', projectId);
   };
 
   return (
     <main>
-      {/* <HomeBanner {...siteProps} /> 
+      <HomeBanner {...siteProps} />
       <StickyTitle title={siteProps.title} subtitle={siteProps.subtitle} color="secondary" extraClass="-z-20 text-secondary" />
-      <WorkProcess />*/}
-      {selectedProjectId && <ProjectDisplay projectId={selectedProjectId} projects={projects}/>}
-      <div className="mx-auto">
-        <Carousel projects={projects} onProjectSelect={handleProjectSelect} />
+      <WorkProcess />
+      <div id="projects" className="relative">
+        <div className="absolute top-0 left-0 w-full pb-[5%]">
+          {selectedProjectId && <ProjectDisplay projectId={selectedProjectId} projects={projects} />}
+          <div className="mx-auto">
+            <Carousel projects={projects} onProjectSelect={handleProjectSelect} />
+          </div>
+        </div>
       </div>
     </main>
   );

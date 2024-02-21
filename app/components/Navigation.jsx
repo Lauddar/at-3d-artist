@@ -38,7 +38,7 @@ function ContactCard({ email, linkedin, instagram }) {
 
 const links = [{
     label: 'Projects',
-    route: '/'
+    route: '/#projects'
 },
 {
     label: 'Reel',

@@ -11,7 +11,7 @@ export default function Carousel({ projects, onProjectSelect }) {
 
     // Object with parameters
     const params = {
-      slidesPerView: 6,
+      slidesPerView: 5,
       spaceBetween: '2%',
       navigation: {
         prevEl: '.swiper-button-prev',
