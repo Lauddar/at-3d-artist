@@ -1,6 +1,7 @@
 
 import { Changa_One } from 'next/font/google';
-import ProjectPopup from './ProjectPopup'; // Importa el componente del popup
+import { isInSection } from "../../../utils/utils";
+import ProjectPopup from './ProjectPopup';
 
 const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
@@ -12,7 +13,7 @@ export default function ProjectDisplay({ projectId, projects }) {
   };
 
   return (
-    <div className="project-display mx-auto flex gap-[3vw]">
+    <div id="projectDisplay" className={`project-display mx-auto flex gap-[3vw] ${isInSection("projectDisplay") ? 'z-20' : ''}`}>
       <div className="w-3/5 flex-none mr-4">
         <div className="relative h-full w-auto overflow-hidden mx-auto rounded-md">
           <img src={projectContent.src} alt={projectContent.title} className="w-auto h-full absolute-img" />

@@ -221,6 +221,10 @@ main {
   padding: 11.155vh 3.7vh 3.7vh;
 }
 
+#frame {
+  pointer-events: none;
+}
+
 swiper-container {
   margin: 0 2.5vw;
 }
