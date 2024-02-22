@@ -12,6 +12,5 @@ export const isInSection = (elementId) => {
     const isTopVisible = elementTop > topOffset;
     const isBottomVisible = elementBottom < bottomOffset;
 
-    console.log(elementId + ' ' + (isTopVisible && isBottomVisible));
     return isTopVisible && isBottomVisible;
 };

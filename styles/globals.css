@@ -154,13 +154,21 @@ html {
   border-radius: 8px;
 }
 
+.process-card.margin-lg, .process-card-lg.margin-lg {
+  margin-bottom: 30vh;
+}
+
+.process-card.margin-sm, .process-card-lg.margin-sm {
+  margin-bottom: 15vh;
+}
+
 .process-cards {
   position: relative;
   margin-top: 10.4166666667vw;
   display: flex;
   flex-direction: column;
-  gap: 27.7777777778vw;
-  padding-bottom: 27.7777777778vw;
+  /*gap: 27.7777777778vw;
+  padding-bottom: 27.7777777778vw;*/
 }
 
 .carousel-container {
