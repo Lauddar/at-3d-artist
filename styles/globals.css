@@ -27,6 +27,14 @@ html {
   box-sizing: inherit;
 }
 
+/*.bg-gradient {
+  background: linear-gradient(to bottom, #212936, #dddddd);
+}*/
+
+body {
+  background: linear-gradient(to bottom, #212936 100vh, #ffffff);
+}
+
 .menu>:first-child {
   justify-content: end;
   width: 100%;
@@ -158,8 +166,12 @@ html {
   margin-bottom: 30vh;
 }
 
-.process-card.margin-sm, .process-card-lg.margin-sm {
-  margin-bottom: 15vh;
+.process-card.margin-sm {
+  margin-bottom: 18vh;
+}
+
+.process-card-lg.margin-sm {
+  margin-bottom: 23vh;
 }
 
 .process-cards {
