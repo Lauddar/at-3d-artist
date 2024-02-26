@@ -1,17 +1,24 @@
 "use client"
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { GreenBackground } from '../components/layout-utils/layout-utils';
 import { Changa_One } from 'next/font/google'
+import { useTheme } from '../utils/ThemeContext'
+import { addBodyClass } from '../utils/utils';
+
 
 const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
 export default function Bio() {
-    const [navigationColors, setNavigationColors] = useState({
-        text: 'text-white',
-        border: 'border-white'
-      });
+    const { setNavigationColors } = useTheme();
 
-      console.log(navigationColors)
+    useEffect(() => {
+        setNavigationColors({
+            text: 'text-white',
+            border: 'border-white'
+        });
+
+        addBodyClass('bg-white');
+    }, []);
 
     return (
         <>

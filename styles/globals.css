@@ -27,11 +27,7 @@ html {
   box-sizing: inherit;
 }
 
-/*.bg-gradient {
-  background: linear-gradient(to bottom, #212936, #dddddd);
-}*/
-
-body {
+.bg-gradient {
   background: linear-gradient(to bottom, #212936 100vh, #ffffff);
 }
 

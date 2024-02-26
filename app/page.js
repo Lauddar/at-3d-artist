@@ -9,6 +9,7 @@ import ProjectDisplay from './components/home/gallery-section/ProjectDisplay';
 
 // Importa el hook useTheme
 import { useTheme } from './utils/ThemeContext';
+import { addBodyClass } from './utils/utils';
 
 
 // Configuración del sitio
@@ -89,12 +90,16 @@ const projects = [
 ];
 
 export default function Home() {
+  const { setNavigationColors } = useTheme();
 
-  const { backgroundColor } = useTheme(); 
-  const [navigationColors, setNavigationColors] = useState({
-    text: 'text-primary',
-    border: 'border-primary'
-  });
+  useEffect(() => {
+      setNavigationColors({
+          text: 'text-primary',
+          border: 'border-primary'
+      });
+
+      addBodyClass('bg-gradient');
+    }, []);
 
   // Efecto secundario para el scroll
   useEffect(() => {
@@ -141,7 +146,6 @@ export default function Home() {
     <main>
       <HomeBanner {...siteProps} />
       <StickyTitle title={siteProps.title} subtitle={siteProps.subtitle} color="secondary" extraClass="-z-20 text-secondary" />
-      <div className="bg-gradient">
         <WorkProcess />
         <div id="projects" className="w-full pb-[3vh]">
           <ProjectDisplay projectId={selectedProjectId} projects={projects} />
@@ -149,7 +153,6 @@ export default function Home() {
             <Carousel projects={projects} onProjectSelect={handleProjectSelect} />
           </div>
         </div>
-      </div>
       <ScrollIndicator color="#C1CF17" hideOnElementId="projects" />
     </main>
   );

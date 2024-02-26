@@ -11,7 +11,7 @@ export default function ScrollIndicator({ color, hideOnElementId  }) {
     
             if (hideElement) {
                 const element = hideElement.getBoundingClientRect();
-                const isInViewport = element.top >= 0 && element.bottom <= window.innerHeight;
+                const isInViewport = element.top >= 0 && element.bottom/2 <= window.innerHeight;
                 setIsVisible(!isInViewport);
             }
         };
@@ -47,7 +47,7 @@ export default function ScrollIndicator({ color, hideOnElementId  }) {
     }, []);
 
     return (
-        <div className="fixed bottom-[3vw] right-[4vw] flex items-center" style={{ color: `${color}`, visibilityAnimation }}>
+        <animated.div className="fixed bottom-[3vw] right-[4vw] flex items-center" style={{ color: `${color}`, ...visibilityAnimation }}>
             <p className="text-2xl mr-2">Scroll</p>
             <animated.div className="h-8 w-8 flex items-center" style={{ ...arrowAnimation }}>
                 <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 37.54">
@@ -77,6 +77,6 @@ export default function ScrollIndicator({ color, hideOnElementId  }) {
                     />
                 </svg>
             </animated.div>
-        </div>
+        </animated.div>
     );
 }
