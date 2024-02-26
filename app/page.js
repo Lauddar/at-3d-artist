@@ -7,6 +7,9 @@ import WorkProcess from './components/home/work-process-section/WorkProcess';
 import Carousel from './components/home/gallery-section/Carousel';
 import ProjectDisplay from './components/home/gallery-section/ProjectDisplay';
 
+// Importa el hook useTheme
+import { useTheme } from './utils/ThemeContext';
+
 
 // Configuración del sitio
 const siteProps = {
@@ -86,6 +89,13 @@ const projects = [
 ];
 
 export default function Home() {
+
+  const { backgroundColor } = useTheme(); 
+  const [navigationColors, setNavigationColors] = useState({
+    text: 'text-primary',
+    border: 'border-primary'
+  });
+
   // Efecto secundario para el scroll
   useEffect(() => {
     function handleScroll() {

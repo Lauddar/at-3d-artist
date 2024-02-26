@@ -1,7 +1,9 @@
+"use client"
 import React from "react";
 import { Changa_One } from 'next/font/google';
 import Link from 'next/link';
 import StickyTitle from "./StickyTitle";
+import { useTheme } from "../utils/ThemeContext"
 
 const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
@@ -9,7 +11,7 @@ function ContactCard({ email, linkedin, instagram }) {
     return (
         <div className="contact-item absolute bg-secondary text-white shadow-md contact-card -z-1 normal-case">
             <div className="text-end ">
-                <StickyTitle title='Albert Toll' subtitle='3D Artist' color='white'/>
+                <StickyTitle title='Albert Toll' subtitle='3D Artist' color='white' />
             </div>
             <ul className="mt-[32%] leading-8 inline-block">
                 <li className="contact-data relative">
@@ -54,9 +56,11 @@ const links = [{
 }];
 
 export default function Navigation() {
+    const { navigationColors } = useTheme();
+
     return (
         <nav className="nav-height flex justify-center uppercase w-full md:text-xl">
-            <ul className="menu w-full flex gap-24 text-primary items-center border-b border-primary">
+            <ul className={`menu w-full flex gap-24 ${navigationColors.text} items-center border-b ${navigationColors.border}`}>
                 {links.map(({ label, route }) => (
                     <li key={label} className={`h-full flex items-center relative ${label === 'Contact' ? 'contact-item' : ''}`}>
                         {label === 'Contact' ? (

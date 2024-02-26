@@ -1,10 +1,18 @@
-import React from 'react';
+"use client"
+import { useState } from 'react';
 import { GreenBackground } from '../components/layout-utils/layout-utils';
-import { Changa_One } from 'next/font/google';
+import { Changa_One } from 'next/font/google'
 
 const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
 export default function Bio() {
+    const [navigationColors, setNavigationColors] = useState({
+        text: 'text-white',
+        border: 'border-white'
+      });
+
+      console.log(navigationColors)
+
     return (
         <>
             <GreenBackground />

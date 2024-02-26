@@ -1,6 +1,7 @@
 import { register } from 'swiper/element/bundle';
 import { Carme } from 'next/font/google'
 import '../styles/globals.css'
+import { ThemeProvider } from './utils/ThemeContext';
 register();
 
 import Navigation from './components/Navigation'
@@ -17,11 +18,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={`relative w-full ${carme.className}`}>
-        <header className="fixed top-0 left-0 right-0 px-df pt-df w-full z-30">
-          <Navigation />
-        </header>
-        {children}
-        <Frame />
+        <ThemeProvider>
+          <header className="fixed top-0 left-0 right-0 px-df pt-df w-full z-30">
+            <Navigation />
+          </header>
+          {children}
+          <Frame />
+        </ThemeProvider>
       </body >
     </html >
   )
