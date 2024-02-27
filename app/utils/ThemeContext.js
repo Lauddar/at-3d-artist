@@ -1,6 +1,7 @@
 // ThemeContext.js
 'use client';
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+import { Changa_One } from 'next/font/google';
 
 const ThemeContext = createContext();
 
@@ -19,3 +20,5 @@ export function ThemeProvider({ children }) {
 };
 
 export const useTheme = () => useContext(ThemeContext);
+
+export const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });

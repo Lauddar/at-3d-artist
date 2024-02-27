@@ -1,8 +1,6 @@
 import React from "react";
 import Link from 'next/link';
-import { Changa_One } from 'next/font/google'
-
-const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
+import { changaOne } from '@/app/utils/ThemeContext';
 
 export default function StickyTitle({ title, subtitle, color, extraClass }) {
     return (
@@ -17,7 +15,6 @@ export default function StickyTitle({ title, subtitle, color, extraClass }) {
                     {subtitle}
                 </p>
             </Link>
-
         </div>
     );
 }

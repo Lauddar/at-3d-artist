@@ -1,12 +1,9 @@
 "use client"
 import { useEffect } from 'react';
 import { GreenBackground } from '../components/layout-utils/layout-utils';
-import { Changa_One } from 'next/font/google'
+import { changaOne } from '@/app/utils/ThemeContext';
 import { useTheme } from '../utils/ThemeContext'
 import { addBodyClass } from '../utils/utils';
-
-
-const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
 export default function Bio() {
     const { setNavigationColors } = useTheme();

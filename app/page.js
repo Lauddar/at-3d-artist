@@ -1,5 +1,8 @@
 "use client"; // This is a client component 👈🏽
 import { useEffect, useState } from "react";
+import { Element} from "react-scroll";
+import { scroller } from 'react-scroll';
+import { useRouter, usePathname } from 'next/navigation';
 import ScrollIndicator from './components/layout-utils/ScrollIndicator';
 import StickyTitle from './components/StickyTitle';
 import HomeBanner from './components/home/initial-section/HomeBannerLayout';
@@ -90,18 +93,21 @@ const projects = [
 ];
 
 export default function Home() {
+  const [selectedProjectId, setSelectedProjectId] = useState(1);
   const { setNavigationColors } = useTheme();
+  const router = useRouter();
+  const [isVisible, setIsVisible] = useState(false);
+  let scrollValue = 750;
 
   useEffect(() => {
-      setNavigationColors({
-          text: 'text-primary',
-          border: 'border-primary'
-      });
+    setNavigationColors({
+      text: 'text-primary',
+      border: 'border-primary'
+    });
 
-      addBodyClass('bg-gradient');
-    }, []);
+    addBodyClass('bg-gradient');
+  }, []);
 
-  // Efecto secundario para el scroll
   useEffect(() => {
     function handleScroll() {
       console.log(window.scrollY);
@@ -113,10 +119,6 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  // Lógica de visibilidad del StickyTitle
-  const [isVisible, setIsVisible] = useState(false);
-  let scrollValue = 750;
 
   useEffect(() => {
     function handleScroll() {
@@ -136,7 +138,17 @@ export default function Home() {
     };
   }, []);
 
-  const [selectedProjectId, setSelectedProjectId] = useState(1);
+  useEffect(() => {
+    let fragment = window.location.hash;
+    console.log(fragment);
+  
+    if (fragment === '#projects') {
+      scroller.scrollTo('projects', {
+        offset: 0,
+        duration: 0,
+      });
+    }
+  }, []);
 
   const handleProjectSelect = (projectId) => {
     setSelectedProjectId(projectId);
@@ -146,13 +158,13 @@ export default function Home() {
     <main>
       <HomeBanner {...siteProps} />
       <StickyTitle title={siteProps.title} subtitle={siteProps.subtitle} color="secondary" extraClass="-z-20 text-secondary" />
-        <WorkProcess />
-        <div id="projects" className="w-full pb-[3vh]">
-          <ProjectDisplay projectId={selectedProjectId} projects={projects} />
-          <div id="carousel" className={`mx-auto`}>
-            <Carousel projects={projects} onProjectSelect={handleProjectSelect} />
-          </div>
+      <WorkProcess />
+      <Element name="projects" id="projects" className="w-full pb-[3vh]" >
+        <ProjectDisplay projectId={selectedProjectId} projects={projects} />
+        <div id="carousel" className={`mx-auto`}>
+          <Carousel projects={projects} onProjectSelect={handleProjectSelect} />
         </div>
+      </Element>
       <ScrollIndicator color="#C1CF17" hideOnElementId="projects" />
     </main>
   );

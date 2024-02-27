@@ -1,10 +1,8 @@
 "use client"
-import { Changa_One } from 'next/font/google';
 import Link from 'next/link';
+import { Link as ScrollLink } from 'react-scroll';
+import { useTheme, changaOne } from '@/app/utils/ThemeContext';
 import StickyTitle from "./StickyTitle";
-import { useTheme } from "../utils/ThemeContext"
-
-const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
 
 function ContactCard({ email, linkedin, instagram }) {
     return (
@@ -37,46 +35,36 @@ function ContactCard({ email, linkedin, instagram }) {
     );
 };
 
-const links = [{
-    label: 'Projects',
-    route: '/#projects'
-},
-{
-    label: 'Reel',
-    route: '/'
-},
-{
-    label: 'Bio',
-    route: '/bio'
-},
-{
-    label: 'Contact',
-    route: '/'
-}];
+const links = [
+    { label: 'Projects', route: '/#projects' },
+    { label: 'Reel', route: '/' },
+    { label: 'Bio', route: '/bio' },
+    { label: 'Contact', route: '/' },
+  ];
 
-export default function Navigation() {
+  export default function Navigation() {
     const { navigationColors } = useTheme();
-
+  
     return (
-        <nav className="nav-height flex justify-center uppercase w-full md:text-xl">
-            <ul className={`menu w-full flex gap-24 ${navigationColors.text} items-center border-b ${navigationColors.border}`}>
-                {links.map(({ label, route }) => (
-                    <li key={label} className={`h-full flex items-center relative ${label === 'Contact' ? 'contact-item' : ''}`}>
-                        {label === 'Contact' ? (
-                            <>
-                                <div className="cursor-pointer contact-label">
-                                    {label}
-                                </div>
-                                <ContactCard email="contact@toll3dartist.com" linkedin="albert-toll" instagram="toll3dart" />
-                            </>
-                        ) : (
-                            <Link href={route} key={label}>
-                                {label}
-                            </Link>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        </nav>
+      <nav className="nav-height flex justify-center uppercase w-full md:text-xl">
+        <ul className={`menu w-full flex gap-24 ${navigationColors.text} items-center border-b ${navigationColors.border}`}>
+          {links.map(({ label, route }) => (
+            <li key={label} className={`h-full flex items-center relative cursor-pointer ${label === 'Contact' ? 'contact-item' : ''}`}>
+              {label === 'Contact' ? (
+                <>
+                  <div className="contact-label">
+                    {label}
+                  </div>
+                  <ContactCard email="contact@toll3dartist.com" linkedin="albert-toll" instagram="toll3dart" />
+                </>
+              ) : (
+                <Link href={route} key={label}>
+                  {label}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
     );
-};
+  };

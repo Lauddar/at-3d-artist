@@ -28,7 +28,7 @@ html {
 }
 
 .bg-gradient {
-  background: linear-gradient(to bottom, #212936 100vh, #ffffff);
+  background: linear-gradient(to bottom, #212936 100vh, #ffffff 600vh);
 }
 
 .menu>:first-child {
@@ -65,8 +65,8 @@ html {
   border-bottom: 20px solid #C1CF17;
   margin-top: min(1%, 1rem);
   position: absolute;
-    right: 0;
-    bottom: 67px;
+  right: 0;
+  bottom: 67px;
 }
 
 @media (max-width: 1440px) {
@@ -138,8 +138,8 @@ html {
   will-change: transform;
   background-color: white;
   overflow: hidden;
-  width: 29.7916666667vw;
-  height: 42.5vw;
+  width: 58vh;
+  height: 80vh;
   position: sticky;
   top: 6.9444444444vw;
   box-shadow: 8px 8px 21px rgba(0, 0, 0, 0.5);
@@ -150,15 +150,16 @@ html {
   will-change: transform;
   background-color: white;
   overflow: hidden;
-  height: 31.791667vw;
-  width: 53.5vw;
+  height: 54vh;
+  width: 96vh;
   position: sticky;
   top: 6.9444444444vw;
   box-shadow: 8px 8px 21px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
 }
 
-.process-card.margin-lg, .process-card-lg.margin-lg {
+.process-card.margin-lg,
+.process-card-lg.margin-lg {
   margin-bottom: 30vh;
 }
 
@@ -218,10 +219,11 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 100%;
-  width: auto;
-  object-fit: cover;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
   object-position: center;
+  border-radius: 10px;
 }
 
 .carousel-item:hover img {
@@ -265,14 +267,18 @@ swiper-container {
 
 /* Para navegadores webkit (Chrome, Safari, etc.) */
 ::-webkit-scrollbar {
-  width: 5px; /* Ancho de la barra de desplazamiento */
+  width: 5px;
+  /* Ancho de la barra de desplazamiento */
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* Color de fondo de la barra de desplazamiento */
+  background: transparent;
+  /* Color de fondo de la barra de desplazamiento */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white; /* Color del "pomo" de la barra de desplazamiento */
-  border-radius: 10px; /* Borde redondeado del "pomo" */
+  background-color: white;
+  /* Color del "pomo" de la barra de desplazamiento */
+  border-radius: 10px;
+  /* Borde redondeado del "pomo" */
 }

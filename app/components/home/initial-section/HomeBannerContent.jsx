@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSpring, animated } from "react-spring";
-import { Changa_One } from 'next/font/google';
-
-const changaOne = Changa_One({ subsets: ['latin'], weight: '400' });
+import { changaOne } from '@/app/utils/ThemeContext';
 
 export default function HomeBannerContent({ title, subtitle, description }) {
     const [scrollY, setScrollY] = useState(0);
